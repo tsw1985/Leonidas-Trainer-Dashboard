@@ -1,0 +1,66 @@
+.selectTrainer{
+    border: 1px solid red;
+}
+
+.exercices{
+    border: 1px solid red;
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.inputSearchTrainer{
+    width:250px;
+}
+
+.leftSide{
+    border: 1px solid blue;
+}
+
+.rightSide{
+    border: 1px solid green;
+}
+
+.exerciseSearch{
+    padding:4px;
+    border: 1px solid pink;
+}
+
+.exerciseResultList{
+    padding:4px;
+    border: 1px solid pink;
+}
+
+#ulExerciseResultList{
+    width: 100%;
+}
+
+.ulExerciseResultList li{
+    height: 50px;
+    border: 1px solid black;
+    decoration-style: none;
+}
+
+.buttonFloatRight{
+    float: right;
+}
+
+.redBorder{
+    border: 1px solid red;
+}
+
+.dayDiv{
+    border: 1px solid red;
+}
+
+.bodyPlaceDiv{
+    margin-left: 20px;
+    border: 1px solid blue;
+}
+
+.exercisesDiv{
+    margin-left: 40px;
+    border: 1px solid green;
+    height: 40px;
+}
+

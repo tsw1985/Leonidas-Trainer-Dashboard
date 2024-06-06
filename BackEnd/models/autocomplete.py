@@ -1,0 +1,4 @@
+class Autocomplete:
+    item = ""
+    label = ""
+

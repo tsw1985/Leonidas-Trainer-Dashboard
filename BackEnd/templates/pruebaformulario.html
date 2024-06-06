@@ -1,0 +1,25 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+
+  <h1>FORMULARIO</h1>
+
+        <form method="POST" action="/admin/pruebaclass/"  >
+        {% csrf_token %}
+
+            Nombre: <input type="text" name"nombre" />
+            <input type="submit" value="enviar"/>
+
+        </form>
+</div>
+{% endblock %}

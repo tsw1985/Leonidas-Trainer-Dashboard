@@ -1,0 +1,148 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+ {% block content %}
+
+<div ng-app="leonidastrainer">
+
+    <div class="row" ng-controller="createtrainercontroller">
+
+        {% csrf_token %}
+
+        <!--start LEFT SIDE-->
+        <div class="col-md-6">
+            <div class="leftSide">
+
+                <h4 class="text-center">Diseñar entrenamiento</h4>
+
+                    <div>
+                         <h4>SELECCIONE ENTRENAMIENTO</h4>
+                         <label>Nombre</label>
+                         <input type="text"
+                                class="inputSearchTrainer"
+                                ng-model="entrenamiento"
+                                ui-autocomplete="myTrainers">
+
+                         <input type="hidden" ng-model="idtrainerinput"/>
+
+                    </div>
+
+                    <div class="exercices">
+                       <h4>SELECCIONE DIA</h4>
+                        <ul class="btn-group">
+                           <li ng-repeat="day in trainer_days" class="btn btn-success">
+                               <span ng-bind="day.label"></span>
+                               <input  ng-click="dayClick(day.id)" type="radio" name="'DIA'" ng-bind="day.label"/>
+                           </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="exercices">
+                             <h4>BUSCAR EJERCICIOS</h4>
+
+
+                             <!--
+                                <input type="text" ng-model="exercices" ui-autocomplete="myExercices" >
+                             -->
+
+                             <div class="exerciseSearch">
+                                 <label>De:</label>
+                                 <ul class="">
+                                    <li ng-repeat="bodyPlace in bodyPlaces" class="btn btn-primary">
+                                        <span ng-bind="bodyPlace.label"></span>
+                                        <input  ng-click="bodyPlaceClick(bodyPlace.id)" type="radio" name="'BODY'" ng-bind="bodyPlace.label"/>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="exerciseSearch">
+                                <label>En:</label>
+                                 <ul class="btn-group">
+                                    <li ng-repeat="typeExercise in typeExercises" class="btn btn-primary">
+                                        <span ng-bind="typeExercise.label"></span>
+                                        <input  ng-click="typeExerciseClick(typeExercise.id)" type="radio" name="'TYPE_EXERCISE'" ng-bind="typeExercise.label"/>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                            <div class="exerciseSearch">
+                                <label>Nombre</label>
+                                <input type="text" ng-model="texto" ng-keyup="writetext(texto)"/>
+                            </div>
+
+
+                            <div class="exerciseResultList">
+                                 <h4 class="text-center">EJERCICIOS ENCONTRADOS</h4>
+                                 <ul id="ulExerciseResultList" class="ulExerciseResultList">
+                                     <li ng-repeat="exercise in exerciseList">
+                                        <span ng-bind="exercise.label"></span>
+                                        <span ng-bind="exercise.description"></span>
+                                        <span ng-bind="exercise.bodyplace"></span>
+
+
+                                        <div class="buttonFloatRight">
+                                            <button ng-click="addExerciseToTrainer(exercise.id , exercise.description, exercise.bodyplace)"  class="btn btn-success" >+</button>
+                                            <button ng-click="addExerciseToTrainer(exercise.id,exercise.description, exercise.bodyplace)"  class="btn btn-info" >?</button>
+                                        </div>
+                                     </li>
+                                 </ul>
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+
+            </div><!--end left side content-->
+        </div>
+        <!--end LEFT SIDE-->
+
+
+        <!-- ****************************************************************************************************** -->
+        <!-- ************************************** RIGHT********************************************************** -->
+        <!-- ****************************************************************************************************** -->
+
+
+        <!--start RIGHT SIDE-->
+        <div class="col-md-6">
+
+            <gettrainer></gettrainer>
+
+            <!--
+             <div class="exerciseResultList">
+                 <h4 id="titletrainer" class="text-center"></h4>
+                 <div id="trainerContent"></div>
+            </div>
+            -->
+
+
+
+        </div><!--END RIGHT SIDE-->
+
+
+
+
+
+    </div><!--end ROW CONTAINER SIDES-->
+
+
+
+
+
+
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+

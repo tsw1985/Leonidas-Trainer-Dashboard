@@ -1,0 +1,38 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+
+<script>
+
+
+</script>
+
+It is now desde plantilla aaa-> {{ current_date }}
+
+Te gusta Django {{ nombreProgramador }}  ??
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-primary">Primary</button>
+
+SOY {{ user }}
+
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+{% else %}
+    <p>Welcome, new user. Please log in.</p>
+{% endif %}
+</div>
+{% endblock %}
+
+
